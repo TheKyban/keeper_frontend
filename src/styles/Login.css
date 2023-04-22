@@ -1,0 +1,90 @@
+:root {
+    --login-background:white;
+    --input-border:#eeeedb;
+    --small-font:1rem;
+    --login-padding:30px;
+    --input-padding:7px 10px;
+}
+.login {
+    width: 50%;
+    text-align: center;
+    background-color: var(--login-background);
+    padding: var(--login-padding);
+    font-family: "Poppins";
+    box-shadow: 3px 3px 6px var(--text-shadow);
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50% ,-50%);
+    border-radius: 3;
+}
+
+.login h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: start;
+}
+.login form label {
+    font-size: var(--small-font);
+    margin-bottom: 5px;
+}
+.login form label span {
+    color: goldenrod;
+}
+.login form input {
+    outline: none;
+    margin-bottom: 10px;
+    font-size: var(--small-font);
+    padding: var(--input-padding);
+    border: 1px solid var(--input-border);
+}
+
+.login form input:focus {
+    border: 1px solid goldenrod;
+}
+.login p {
+    font-size: 0.9rem;
+}
+
+.login button {
+    margin: 20px 0;
+    font-size: var(--small-font);
+    padding: var(--input-padding);
+    outline: none;
+    border: none;
+    background-color: #daa5209a;
+}
+
+
+/**SignUp*/
+
+.login .name {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.login .name input {
+    width: 100%;
+}
+@media screen and (max-width:750px) {
+    .login {
+        width: 60%;
+    }
+}
+@media screen and (max-width:650px) {
+    .login {
+        width: 70%;
+    }
+}
+@media screen and (max-width:470px) {
+    .login {
+        width: 90%;
+    }
+}

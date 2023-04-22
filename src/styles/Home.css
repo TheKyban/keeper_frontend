@@ -1,0 +1,134 @@
+:root {
+    --width: 50%;
+    --main-text-color: #e9c835;
+    --btn-first: #F97B22;
+    --full-width:100%;
+    --medium-font:1.5rem;
+}
+
+/*HOME*/
+
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--text-font);
+    height: calc(100vh - 70px);
+    padding: var(--nav-padding);
+}
+
+/*TEXT SECTION*/
+
+.homeText {
+    flex: 1;
+    width: var(--width);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 30px;
+    text-align: center;
+}
+
+
+/*TEXT H1*/
+
+.homeText h1 {
+    font-size: 5rem;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--main-text-color);
+    position: relative;
+}
+
+.homeText h1::before {
+    content: attr(data-be);
+    position: absolute;
+    width: 0%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    color: var(--main-text-color);
+    -webkit-text-stroke: 1px var(--main-text-color);
+    overflow: hidden;
+    border-right: 2px solid var(--main-text-color);
+    animation: textFill 6s linear infinite;
+
+}
+
+/*TEXt P*/
+
+.homeText p {
+    font-size: var(--medium-font);
+}
+
+/*BUTTON*/
+
+.homeText button {
+    background: linear-gradient(to right, var(--btn-first), var(--main-text-color));
+    outline: none;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px var(--text-shadow);
+}
+
+.homeText button a {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    font-family: "Ubuntu", sans-serif;
+}
+
+
+/*IMAGE SECTION*/
+
+.homeImage {
+    width: var(--width);
+}
+
+.homeImage>img {
+    width: 100%;
+}
+
+
+@keyframes textFill {
+
+    0%,
+    20%,
+    100% {
+        width: 0%;
+    }
+
+    70%,
+    90% {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:850px) {
+    .home {
+        flex-direction: column;
+    }
+
+    .homeText {
+        width: var(--full-width);
+    }
+    .home p {
+        font-size: 1.2rem;
+    }
+    .homeText button a {
+        font-size: 2rem;
+    }
+
+    .homeImage {
+        width: var(--full-width);
+    }
+}
+
+@media screen and (max-width:450px) {
+    .homeText button a {
+        font-size: var(--medium-font);
+    }
+    
+}

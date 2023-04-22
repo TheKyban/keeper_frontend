@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&family=Sail&family=Ubuntu&display=swap');
+@import "Header.css";
+@import "Home.css";
+@import "Login.css";
+@import "Main.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    background-color: #F0F0F0;
+}
+
+a {
+    text-decoration: none;
+}

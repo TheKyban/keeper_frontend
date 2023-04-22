@@ -1,0 +1,107 @@
+:root {
+    --border-radius: 7px 7px;
+    --add-btn-background: #daa5209a;
+    --add-btn-color: #474747;
+    --input-font: "Poppins";
+    --background: white;
+}
+
+
+/* INPUT AREA  */
+
+
+.main .input {
+    width: 400px;
+    position: relative;
+    margin: 30px auto;
+    height: 134px;
+    border-radius: 7px;
+    box-shadow: 0 0 5px 3px var(--text-shadow);
+}
+
+.main .input input,
+.main .input textarea {
+    width: 100%;
+    outline: none;
+    border: none;
+    margin: 0;
+    padding: 10px 10px;
+    font-size: 1.3rem;
+
+    font-family: var(--input-font);
+    color: #6b6868;
+}
+
+.main .input input {
+    border-radius: var(--border-radius) 0 0;
+}
+
+.main .input textarea {
+    border-radius: 0 0 var(--border-radius);
+    resize: none;
+}
+
+.main .input button,
+.main .list button {
+
+    font-family: var(--input-font);
+    padding: 3px;
+    font-size: var(--small-font);
+    outline: none;
+    border: none;
+    background-color: var(--add-btn-background);
+    cursor: pointer;
+    color: var(--add-btn-color);
+}
+
+.main .input button {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: 5%;
+    bottom: -25px;
+    border-radius: 50%;
+}
+
+/* LIST AREA */
+
+
+.main .lists {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.main .list {
+
+    font-family: var(--input-font);
+    border-radius: 5px;
+    background-color: var(--background);
+    padding: 10px;
+    position: relative;
+    box-shadow: 0 0 3px 1px var(--text-shadow);
+    display: flex;
+    flex-direction: column;
+
+}
+
+.main .list h3 {
+    color: #252424;
+}
+
+.main .list button {
+    align-self: flex-end;
+}
+
+/* Media Query */
+
+@media screen and (max-width:450px) {
+    .main .input {
+        width: 90%;
+    }
+
+    .main .lists {
+        grid-template-columns: repeat(auto-fill, minmax(45vw, 1fr));
+    }
+}

@@ -1,0 +1,31 @@
+:root {
+    --nav-background:#F9D949;
+    --nav-padding:10px;
+    --text-color:#ffffff;
+    --text-font:'Poppins';
+    --logo-width:50px;
+    --text-shadow:#00000056;
+}
+
+nav {
+    width: 100%;
+    padding: var(--nav-padding);
+    background-color: var(--nav-background);
+    color: var(--text-color);
+    font-family: var(--text-font);
+}
+
+nav > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+nav > div > img {
+    width: var(--logo-width);
+}
+
+nav > div > h1 {
+    text-shadow: 0px 3px 1px var(--text-shadow);
+}

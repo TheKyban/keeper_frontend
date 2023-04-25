@@ -53,7 +53,7 @@
     -webkit-text-stroke: 1px var(--main-text-color);
     overflow: hidden;
     border-right: 2px solid var(--main-text-color);
-    animation: textFill 6s linear infinite;
+    animation: textFill 3.5s linear infinite;
 
 }
 

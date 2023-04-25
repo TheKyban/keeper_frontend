@@ -1,9 +1,24 @@
-import {createReducer} from '@reduxjs/toolkit'
+import { createReducer } from '@reduxjs/toolkit'
 
-const authenticationReducer = createReducer({
-    isAuthenticated:false
-},{
-    SignUp:(state,action) => {
-        const {name,email,password} = action.payload;
+const AuthenticationReducer = createReducer({
+    isAuthenticated: false
+}, {
+    
+    loginUser:(state, action) => {
+        state.isAuthenticated = action.payload;
+        
+    },
+    checkCookie:(state,action) => {
+        const cookie = document.cookie
+
+        if(cookie) {
+            state.isAuthenticated = true
+        } else {
+            state.isAuthenticated = false
+        }
     }
 })
+
+export default AuthenticationReducer
+
+

@@ -1,21 +1,71 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { url } from '../App'
 
 function Main() {
+    const dispatch = useDispatch()
     const [items, setItems] = useState([])
 
-    const addItem = (task) => {
-        setItems(previousValue => (
-            [...previousValue, task]
-        ))
+    const addItem = async (task) => {
+
+
+        /**
+         * Options for fetching data
+        */
+
+        const options = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: 'include',
+            body: JSON.stringify(task)
+        }
+        const add = fetch(`${url}/task/new`, options)
+            .then(res => res.json())
+            .then(d => {
+                setItems(previousValue => (
+                    [...previousValue, d.data]
+                ))
+            })
     }
 
-    const deleteItem = (id) => {
-        setItems(previousValue => (
-            previousValue.filter((item, index) => {
-                return id != index
+    useEffect(() => {
+
+        const options = {
+            headers: { "Content-Type": "application/json" },
+            credentials: 'include',
+        }
+    
+        const allTask = fetch(`${url}/task/all`,options).then(res=>res.json())
+            .then(d=>{
+                setItems(d.data)
             })
-        ))
+    }, [])
+    
+    const deleteItem = (id) => {
+
+        const options = {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+            credentials: 'include',
+            body: JSON.stringify({
+                _id:id
+            })
+        }
+
+        const deleteTask = fetch(`${url}/task/delete`,options).then(res=>res.json())
+        .then(d=>{
+            if(d.acknowledged) {
+                
+                setItems(previousValue => (
+                    previousValue.filter((item, index) => {
+                        return id != item._id
+                    })
+                ))
+            }
+        })
     }
+
+
     return (
         <div className='main'>
             <Input onAdd={addItem} />
@@ -23,7 +73,7 @@ function Main() {
                 {
                     items.map((item, index) => {
                         return (
-                            <List title={item.title} description={item.description} key={index} id={index} deleteHandler={deleteItem} />
+                            <List title={item.title} description={item.description} key={index} id={item._id} deleteHandler={deleteItem} />
                         )
                     })
                 }
